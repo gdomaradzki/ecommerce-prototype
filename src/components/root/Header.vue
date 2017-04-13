@@ -21,22 +21,39 @@
   .l-app-header {
     @extend %v-align-center;
     width: 100%;
+    padding: 0 15px;
+    background-color: $primary-color;
+    flex-direction: row;
+    transition: .3s ease;
     justify-content: space-between;
-    padding: 0 40px;
-    background-color: #fff;
 
     .md-header-current-page {
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 24px;
-      color: $primary-color;
-      margin: 18px 0;
+      font-size: 12px;
+      color: #fff;
+      margin: 15px 0;
+
+      @media (min-width: 600px) {
+        color: $primary-color;
+        margin: 18px 0;
+        font-size: 24px;
+      }
+    }
+
+    @media (min-width: 600px) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 40px;
+      background-color: #fff;
     }
   }
 
   .l-header-quick-access {
     display: flex;
     @extend %v-align-center;
+    justify-content: space-around;
+    width: 40%;
 
     .md-mini-bag__quantity {
       background-color: $base-color;
@@ -48,6 +65,11 @@
       font-weight: 700;
       @extend %v-align-center;
       @extend %h-align-center;
+    }
+
+    @media (min-width: 600px) {
+      width: auto;
+      margin-top: 0;
     }
   }
 </style>

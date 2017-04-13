@@ -21,15 +21,28 @@
   .md-mini-bag {
     @extend %v-align-center;
     .md-mini-bag__price {
-      color: $primary-color;
+      color: #fff;
       font-size: 12px;
       font-weight: 400;
       margin: 0 5px;
+
+      @media (min-width: 600px) {
+        color: $primary-color;
+      }
     }
 
     .md-mini-bag__icon {
       width: 17px;
       height: 17px;
+
+      path {
+        fill: #fff;
+        transition: .3s ease;
+
+        @media (min-width: 600px) {
+          fill: $primary-color;
+        }
+      }
     }
 
     .md-mini-bag__quantity {

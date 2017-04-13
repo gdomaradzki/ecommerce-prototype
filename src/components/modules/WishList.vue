@@ -22,6 +22,15 @@
     .md-wish-list__icon {
       width: 20px;
       height: 20px;
+
+      polygon {
+        fill: #fff;
+        transition: .3s ease;
+
+        @media (min-width: 600px) {
+          fill: $primary-color;
+        }
+      }
     }
 
     .md-mini-bag__quantity {
