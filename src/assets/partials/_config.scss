@@ -1,0 +1,34 @@
+// Imports
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+// Variables
+$primary-font: 'Lato', sans-serif;
+$primary-color: #444A59;
+$base-color: #358ED7;
+$background-color: #f8f8f8;
+
+// Placeholders
+%v-align-center {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+%h-align-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -moz-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
