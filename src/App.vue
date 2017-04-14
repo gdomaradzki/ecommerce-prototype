@@ -43,7 +43,7 @@
       fetchPromos () {
         Axios.get(`${urlPrefix}/v1/products/promos/true`)
             .then((res) => {
-              this.promos = res.data.map(promo => promo)
+              this.promos = res.data
             }).catch((error) => {
               console.log(error)
             })
@@ -52,7 +52,7 @@
       fetchBrands () {
         Axios.get(`${urlPrefix}/v1/products/brands/`)
             .then((res) => {
-              this.brands = res.data.map(brand => brand)
+              this.brands = res.data
             }).catch((error) => {
               console.log(error)
             })
@@ -61,8 +61,7 @@
       fetchOneBrand (brand) {
         Axios.get(`${urlPrefix}/v1/products/${brand}`)
               .then((res) => {
-                console.log(res)
-                this.chosenBrand = res.data.map(brand => brand)
+                this.chosenBrand = res.data
               }).catch((error) => {
                 console.log(error)
               })
