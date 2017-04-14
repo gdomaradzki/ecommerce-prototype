@@ -4,8 +4,9 @@
     <router-view :newProducts='newProducts'
                  :promos="promos"
                  :brands="brands"
-                 :products="products">
+                 :allProducts="products">
     </router-view>
+    <!-- :products="products" -->
     <app-footer></app-footer>
   </div>
 </template>
@@ -18,13 +19,12 @@
     data () {
       return {
         newProducts: [],
-        products: [],
         promos: [],
-        brands: []
+        brands: [],
+        brandProducts: []
       }
     },
     created: function () {
-      this.fetchAllProducts()
       this.fetchNewProducts()
       this.fetchPromos()
       this.fetchBrands()
@@ -33,36 +33,26 @@
       // Fetches all new products from the API
       fetchNewProducts () {
         Axios.get(`${urlPrefix}/v1/products/news/true`)
-            .then((res) => {
-              this.newProducts = res.data.map(products => products)
-            }).catch((error) => {
-              console.log(error)
-            })
+              .then((res) => {
+                this.newProducts = res.data.map(products => products)
+              }).catch((error) => {
+                console.log(error)
+              })
       },
       // Fetches all new promos from the API
       fetchPromos () {
         Axios.get(`${urlPrefix}/v1/products/promos/true`)
-            .then((res) => {
-              this.promos = res.data
-            }).catch((error) => {
-              console.log(error)
-            })
+              .then((res) => {
+                this.promos = res.data
+              }).catch((error) => {
+                console.log(error)
+              })
       },
       // Fetches all available brands
       fetchBrands () {
         Axios.get(`${urlPrefix}/v1/products/brands/`)
-            .then((res) => {
-              this.brands = res.data
-            }).catch((error) => {
-              console.log(error)
-            })
-      },
-      // Fetches all products
-      fetchAllProducts () {
-        Axios.get(`${urlPrefix}/v1/products/`)
               .then((res) => {
-                this.products = res.data
-                console.log(this.products)
+                this.brands = res.data
               }).catch((error) => {
                 console.log(error)
               })

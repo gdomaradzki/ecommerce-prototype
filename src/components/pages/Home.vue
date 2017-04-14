@@ -22,12 +22,10 @@
         <option class="md-brands__option" :value="brand" v-for="brand in brands">{{ brand }}</option>
       </select>
       <router-link class="md-brands__check-brand"
-                   :to="`/products/${selectedBrand}/list`"
-                   :products="products">
+                   :to="`/products/${selectedBrand}/list`">
                    check it out!
       </router-link>
     </section>
-
     <!-- Current Offers -->
     <section class="l-current-offers">
       <h3 class="md-current-offers__title">current offers</h3>
@@ -39,10 +37,11 @@
 <script>
   export default {
     name: 'Home',
-    props: ['newProducts', 'promos', 'brands', 'products'],
+    props: ['newProducts', 'promos', 'brands', 'allProducts'],
     data () {
       return {
-        selectedBrand: ''
+        selectedBrand: '',
+        chosenBrand: []
       }
     }
   }
@@ -94,6 +93,9 @@
     background-color: #fff;
     .md-brands__title {
       @extend .md-new-products__title;
+      @media (min-width: 600px) {
+        margin: 15px 0;
+      }
     }
 
     @media (min-width: 600px) {
@@ -147,10 +149,16 @@
 
     .md-current-offers__title {
       @extend .md-new-products__title;
+
+      @media (min-width: 600px) {
+        text-align: left;
+        font-size: 24px;
+        margin: 15px 10px;
+      }
     }
 
     @media (min-width: 600px) {
-      margin: 15px 40px 50px;
+      margin: 15px 30px 50px;
     }
   }
 </style>
