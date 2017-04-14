@@ -13,6 +13,7 @@ import Footer from '@/components/root/Footer'
 import MiniBag from '@/components/modules/MiniBag'
 import WishList from '@/components/modules/WishList'
 import Product from '@/components/modules/Product.vue'
+import PromoProduct from '@/components/modules/PromoProduct.vue'
 
 // Defining Components
 Vue.component('app-header', Header)
@@ -20,6 +21,7 @@ Vue.component('app-footer', Footer)
 Vue.component('app-mini-bag', MiniBag)
 Vue.component('app-wish-list', WishList)
 Vue.component('app-product', Product)
+Vue.component('app-promo-product', PromoProduct)
 
 Vue.use(Router)
 

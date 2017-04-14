@@ -11,6 +11,7 @@
     <!-- New Products -->
     <section class="l-new-products">
       <h1 class="md-new-products__title">new products</h1>
+
     </section>
 
     <!-- Available Brands -->
@@ -22,13 +23,15 @@
     <!-- Current Offers -->
     <section class="l-current-offers">
       <h3 class="md-current-offers__title">current offers</h3>
+      <app-promo-product :newPromos="newPromos"></app-promo-product>
     </section>
   </main>
 </template>
 
 <script>
   export default {
-    name: 'Home'
+    name: 'Home',
+    props: ['newPromos']
   }
 </script>
 
@@ -66,13 +69,16 @@
   }
 
   .l-brands {
-    margin: 15px;
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #fff;
     .md-brands__title {
       @extend .md-new-products__title;
     }
 
     @media (min-width: 600px) {
-      margin: 15px 40px;
+      margin: 75px 0;
+      padding: 40px 40px 75px;
     }
   }
 
@@ -92,7 +98,7 @@
     }
 
     @media (min-width: 600px) {
-      margin: 15px 40px;
+      margin: 15px 40px 50px;
     }
   }
 </style>

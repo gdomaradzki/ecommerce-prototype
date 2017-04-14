@@ -1,24 +1,27 @@
 <template>
-  <article class="l-product">
-    <!-- <img class="md-product__photo" :src="" :alt=""> -->
-    <button class="md-product__wish-list-button">
-      <svg class="md-wish-list__icon" viewBox="0 6 20 20">
-          <polygon id="Wishlist-Icon" stroke="none" fill="#444A59" fill-rule="evenodd" points="12.3598869 13.2675869 20 13.2675869 13.8200565 17.7545318 16.1782804 25.0221187 9.99833694 20.5318477 3.81839348 25.0221187 6.17994346 17.7545318 0 13.2675869 7.63678696 13.2675869 9.99833694 6"></polygon>
-      </svg>
-    </button>
-    <h3 class="md-product__name">x off-white</h3>
-    <p class="md-product__description">Moletom com recorte nas mangas</p>
-    <div class="md-product__pricing">
-      <strong class="md-product__price">£72</strong>
-      <strong class="md-product__offer">£50</strong>
-    </div>
-    <button class="md-product__cart-button">add to cart</button>
-  </article>
+  <div>
+    <article class="l-promo-product" v-for="promo in newPromos">
+      <img class="md-promo-product__photo" :src="promo.url" :alt="promo.name">
+      <button class="md-promo-product__wish-list-button">
+        <svg class="md-wish-list__icon" viewBox="0 6 20 20">
+            <polygon id="Wishlist-Icon" stroke="none" fill="#444A59" fill-rule="evenodd" points="12.3598869 13.2675869 20 13.2675869 13.8200565 17.7545318 16.1782804 25.0221187 9.99833694 20.5318477 3.81839348 25.0221187 6.17994346 17.7545318 0 13.2675869 7.63678696 13.2675869 9.99833694 6"></polygon>
+        </svg>
+      </button>
+      <h3 class="md-promo-product__name">{{ promo.name }}</h3>
+      <p class="md-promo-product__description">{{ promo.description }}</p>
+      <div class="md-promo-product__pricing">
+        <strong class="md-promo-product__price">£{{ promo.price.price }}</strong>
+        <strong class="md-promo-product__offer">£{{ promo.price.offer }}</strong>
+      </div>
+      <button class="md-promo-product__cart-button">add to cart</button>
+    </article>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'Product'
+    name: 'PromoProduct',
+    props: ['newPromos']
   }
 </script>
 
@@ -26,14 +29,14 @@
   // Imports
   @import './../../assets/partials/_config';
 
-  .l-product {
+  .l-promo-product {
     background-color: #fff;
     padding: 20px 20px 25px;
     margin: 10px 0;
     width: 100%;
     position: relative;
 
-    .md-product__photo {
+    .md-promo-product__photo {
       width: 250px;
       display: block;
       margin: 0 auto 20px;
@@ -43,7 +46,7 @@
       }
     }
 
-    .md-product__wish-list-button {
+    .md-promo-product__wish-list-button {
       border-radius: 50%;
       border: 2px solid $border-color;
       width: 40px;
@@ -74,7 +77,7 @@
       }
     }
 
-    .md-product__name {
+    .md-promo-product__name {
       padding: 10px 0 0;
       margin: 0;
       text-align: center;
@@ -89,7 +92,7 @@
       }
     }
 
-    .md-product__description {
+    .md-promo-product__description {
       text-align: center;
       color: $border-color;
       font-size: 12px;
@@ -102,10 +105,10 @@
       }
     }
 
-    .md-product__pricing {
+    .md-promo-product__pricing {
       text-align: center;
       padding: 0 0 20px;
-      .md-product__price {
+      .md-promo-product__price {
         color: $primary-color;
         font-size: 14px;
         font-weight: 700;
@@ -118,14 +121,14 @@
         }
       }
 
-      .md-product__offer {
-        @extend .md-product__price;
+      .md-promo-product__offer {
+        @extend .md-promo-product__price;
         text-decoration: none;
         color: $offer-color;
       }
     }
 
-    .md-product__cart-button {
+    .md-promo-product__cart-button {
       text-transform: uppercase;
       padding: 13px 0;
       color: $primary-color;
@@ -150,8 +153,8 @@
     }
 
     @media (min-width: 600px) {
-      margin: 10px;
-      width: auto;
+      margin: 0;
+      width: 339px;
     }
   }
 </style>

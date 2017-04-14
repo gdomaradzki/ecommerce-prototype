@@ -3,12 +3,12 @@ const schema = mongoose.Schema({
   name: {
     type: String,
     required: true
-  },,
+  },
 
   url: {
     type: String,
     required: false
-  }
+  },
 
   description: {
     type: String,
@@ -40,7 +40,10 @@ const schema = mongoose.Schema({
     required: true
   },
 
-  price: [{}]
+  price: {
+    price: Number,
+    offer: Number
+  }
 }, { collection: 'products' });
 
 mongoose.model('Product', schema)

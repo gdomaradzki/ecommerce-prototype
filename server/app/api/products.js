@@ -7,13 +7,15 @@ module.exports = (app) => {
   api.createNewProduct = (req, res) => {
     let product = new Product();
     product.name = req.body.name;
+    product.url = req.body.url;
     product.description = req.body.description;
     product.type = req.body.type;
     product.productSize = req.body.productSize;
     product.stock = req.body.stock;
-    product.newProduct = req.body.newProduct;
+    product.newPromo = req.body.newPromo;
     product.brand = req.body.brand;
-    product.price = req.body.price;
+    product.price = req.body.price.price;
+    product.offer = req.body.price.offer;
 
     product.save(error => {
       if (error) return res.send();
@@ -29,6 +31,14 @@ module.exports = (app) => {
 
       res.status(200).json(product);
       return true;
+    });
+  };
+
+  api.getPromos = (req, res) => {
+    Product.find({ newPromo: req.params.newPromo }, (error, product) => {
+      if (error) return res.send();
+
+      res.json(product);
     });
   };
 
