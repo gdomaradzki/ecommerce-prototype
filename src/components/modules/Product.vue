@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="l-product-container">
     <article class="l-product" v-for="promo in products">
       <img class="md-product__photo" :src="promo.url" :alt="promo.name">
       <button class="md-product__wish-list-button">
@@ -36,6 +36,14 @@
 <style lang="scss">
   // Imports
   @import './../../assets/partials/_config';
+
+  .l-product-container {
+    display: block;
+
+    @media (min-width: 600px) {
+      display: inline-flex;
+    }
+  }
 
   .l-product {
     background-color: #fff;
@@ -161,7 +169,7 @@
     }
 
     @media (min-width: 600px) {
-      margin: 0;
+      margin: 10px;
       width: 339px;
     }
   }

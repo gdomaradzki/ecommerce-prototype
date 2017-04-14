@@ -21,7 +21,12 @@
         <option class="md-brands__option" hidden value="">Choose a brand</option>
         <option class="md-brands__option" :value="brand" v-for="brand in brands">{{ brand }}</option>
       </select>
-      <router-link :to="`/products/${selectedBrand}/list`" class="md-brands__check-brand">check it out!</router-link>
+      <router-link class="md-brands__check-brand"
+                   v-on:click.native="buttonClickHandler()"
+                   :to="`/products/${selectedBrand}/list`"
+                   :products="chosenBrand">
+                   check it out!
+      </router-link>
     </section>
 
     <!-- Current Offers -->
@@ -35,7 +40,7 @@
 <script>
   export default {
     name: 'Home',
-    props: ['newProducts', 'promos', 'brands', 'selectBrandHandler'],
+    props: ['newProducts', 'promos', 'brands', 'selectBrandHandler', 'chosenBrand'],
     data () {
       return {
         selectedBrand: ''
@@ -71,7 +76,7 @@
     margin: 0 15px;
 
     @media (min-width: 600px) {
-      margin: 0 40px;
+      margin: 0 30px;
     }
   }
 
@@ -85,6 +90,7 @@
     @media (min-width: 600px) {
       text-align: left;
       font-size: 24px;
+      margin: 15px 10px;
     }
   }
 
@@ -105,15 +111,25 @@
       text-transform: uppercase;
       border-radius: 5px;
       border: 2px solid $border-color;
-      padding: 7px 10px 9px;
       color: $primary-color;
       transition: .3s ease;
       text-decoration: none;
+      width: 100%;
+      display: flex;
+      @extend %v-align-center;
+      @extend %h-align-center;
+      height: 35px;
+      margin-bottom: 35px;
 
       &:hover {
         background-color: $primary-color;
         border-color: $primary-color;
         color: #fff;
+      }
+
+      @media (min-width: 600px) {
+        display: inline-flex;
+        width: 150px;
       }
     }
   }
@@ -125,6 +141,7 @@
     border: 1px solid #fff;
     color: #fff;
     border-radius: 4px;
+    margin: 15px 0;
 
     @media (min-width: 600px) {
       width: 370px;

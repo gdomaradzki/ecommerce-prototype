@@ -1,12 +1,13 @@
 <template>
   <section class="l-product-listing">
-    <app-product :products="products"></app-product>
+    <app-product :product="products"></app-product>
   </section>
 </template>
 
 <script>
   export default {
-    name: 'ProductListing'
+    name: 'ProductListing',
+    props: ['products']
   }
 </script>
 

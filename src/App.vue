@@ -4,7 +4,8 @@
     <router-view :newProducts='newProducts'
                  :promos="promos"
                  :brands="brands"
-                 :selectBrandHandler="selectBrandHandler">
+                 :selectBrandHandler="selectBrandHandler"
+                 :chosenBrand="chosenBrand">
     </router-view>
     <app-footer></app-footer>
   </div>
@@ -19,7 +20,8 @@
       return {
         newProducts: [],
         promos: [],
-        brands: []
+        brands: [],
+        chosenBrand: []
       }
     },
     created: function () {
@@ -50,10 +52,24 @@
       fetchBrands () {
         Axios.get(`${urlPrefix}/v1/products/brands/`)
             .then((res) => {
-              this.brands = res.data.map(brand => brand.brand)
+              this.brands = res.data.map(brand => brand)
             }).catch((error) => {
               console.log(error)
             })
+      },
+      // Fetches a chosen brand on home page
+      fetchOneBrand (brand) {
+        Axios.get(`${urlPrefix}/v1/products/${brand}`)
+              .then((res) => {
+                console.log(res)
+                this.chosenBrand = res.data.map(brand => brand)
+              }).catch((error) => {
+                console.log(error)
+              })
+      },
+      // Callback that is passed into Home page's select box
+      selectBrandHandler (brand) {
+        this.fetchOneBrand(brand)
       }
     }
   }
