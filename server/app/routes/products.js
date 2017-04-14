@@ -14,6 +14,9 @@ module.exports = (app) => {
   app.route('/v1/products/brands/')
       .get(api.getBrands)
 
+  app.route('/v1/products/:brand')
+      .get(api.getOneBrand)
+
   app.route('/v1/products/:_id')
       .delete(api.deleteProduct)
 };

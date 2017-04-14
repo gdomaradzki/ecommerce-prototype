@@ -34,6 +34,11 @@ export default new Router({
       path: '/products/list',
       name: 'Product Listing',
       component: ProductListing
+    },
+    {
+      path: '/products/:brand/list',
+      name: ':brand',
+      component: ProductListing
     }
   ]
 })

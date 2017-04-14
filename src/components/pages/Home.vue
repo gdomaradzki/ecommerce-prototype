@@ -17,10 +17,11 @@
     <!-- Available Brands -->
     <section class="l-brands">
       <h2 class="md-brands__title">check our available brands</h2>
-      <select class="md-brands__select">
+      <select class="md-brands__select" v-model="selectedBrand">
         <option class="md-brands__option" hidden value="">Choose a brand</option>
-        <option class="md-brands__option" v-for="brand in brands">{{ brand }}</option>
+        <option class="md-brands__option" :value="brand" v-for="brand in brands">{{ brand }}</option>
       </select>
+      <router-link :to="`/products/${selectedBrand}/list`" class="md-brands__check-brand">check it out!</router-link>
     </section>
 
     <!-- Current Offers -->
@@ -34,7 +35,17 @@
 <script>
   export default {
     name: 'Home',
-    props: ['newProducts', 'promos', 'brands']
+    props: ['newProducts', 'promos', 'brands', 'selectBrandHandler'],
+    data () {
+      return {
+        selectedBrand: ''
+      }
+    },
+    methods: {
+      buttonClickHandler () {
+        this.selectBrandHandler(this.selectedBrand)
+      }
+    }
   }
 </script>
 
@@ -89,6 +100,22 @@
       margin: 75px 0;
       padding: 40px 40px 75px;
     }
+
+    .md-brands__check-brand {
+      text-transform: uppercase;
+      border-radius: 5px;
+      border: 2px solid $border-color;
+      padding: 7px 10px 9px;
+      color: $primary-color;
+      transition: .3s ease;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        color: #fff;
+      }
+    }
   }
 
   .md-brands__select {
@@ -97,7 +124,7 @@
     background-color: $primary-color;
     border: 1px solid #fff;
     color: #fff;
-    border-radius: 2px;
+    border-radius: 4px;
 
     @media (min-width: 600px) {
       width: 370px;

@@ -1,9 +1,6 @@
 <template>
   <section class="l-product-listing">
-    <app-product></app-product>
-    <app-product></app-product>
-    <app-product></app-product>
-    <app-product></app-product>
+    <app-product :products="products"></app-product>
   </section>
 </template>
 

@@ -13,7 +13,7 @@
         <strong class="md-product__price">£{{ promo.price.price }}</strong>
         <strong class="md-product__offer">£{{ promo.price.offer }}</strong>
       </div>
-      <button class="md-product__cart-button">add to cart</button>
+      <button class="md-product__cart-button">{{ button.text }}</button>
     </article>
   </div>
 </template>
@@ -21,7 +21,14 @@
 <script>
   export default {
     name: 'Product',
-    props: ['products']
+    props: ['products'],
+    data () {
+      return {
+        button: {
+          text: 'add to cart'
+        }
+      }
+    }
   }
 </script>
 

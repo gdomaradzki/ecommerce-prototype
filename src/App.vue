@@ -3,7 +3,8 @@
     <app-header></app-header>
     <router-view :newProducts='newProducts'
                  :promos="promos"
-                 :brands="brands">
+                 :brands="brands"
+                 :selectBrandHandler="selectBrandHandler">
     </router-view>
     <app-footer></app-footer>
   </div>
