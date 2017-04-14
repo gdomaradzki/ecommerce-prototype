@@ -19,5 +19,6 @@ export default {
   body {
     font-family: $primary-font;
     background-color: $background-color;
+    box-sizing: border-box;
   }
 </style>

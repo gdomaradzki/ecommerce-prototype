@@ -10,11 +10,13 @@ import Header from '@/components/root/Header'
 // Importing Modules
 import MiniBag from '@/components/modules/MiniBag'
 import WishList from '@/components/modules/WishList'
+import Product from '@/components/modules/Product.vue'
 
 // Defining Components
 Vue.component('app-header', Header)
 Vue.component('app-mini-bag', MiniBag)
 Vue.component('app-wish-list', WishList)
+Vue.component('app-product', Product)
 
 Vue.use(Router)
 
