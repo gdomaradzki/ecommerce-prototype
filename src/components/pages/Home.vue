@@ -22,9 +22,8 @@
         <option class="md-brands__option" :value="brand" v-for="brand in brands">{{ brand }}</option>
       </select>
       <router-link class="md-brands__check-brand"
-                   v-on:click.native="buttonClickHandler()"
                    :to="`/products/${selectedBrand}/list`"
-                   :products="chosenBrand">
+                   :products="products">
                    check it out!
       </router-link>
     </section>
@@ -40,15 +39,10 @@
 <script>
   export default {
     name: 'Home',
-    props: ['newProducts', 'promos', 'brands', 'selectBrandHandler', 'chosenBrand'],
+    props: ['newProducts', 'promos', 'brands', 'products'],
     data () {
       return {
         selectedBrand: ''
-      }
-    },
-    methods: {
-      buttonClickHandler () {
-        this.selectBrandHandler(this.selectedBrand)
       }
     }
   }
