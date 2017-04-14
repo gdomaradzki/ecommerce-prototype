@@ -11,6 +11,7 @@ module.exports = (app) => {
     product.type = req.body.type;
     product.productSize = req.body.productSize;
     product.stock = req.body.stock;
+    product.newProduct = req.body.newProduct;
     product.brand = req.body.brand;
     product.price = req.body.price;
 
