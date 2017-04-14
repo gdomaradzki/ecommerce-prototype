@@ -6,6 +6,7 @@ import ProductListing from '@/components/pages/ProductListing'
 
 // Importing Root Components
 import Header from '@/components/root/Header'
+import Footer from '@/components/root/Footer'
 
 // Importing Modules
 import MiniBag from '@/components/modules/MiniBag'
@@ -14,6 +15,7 @@ import Product from '@/components/modules/Product.vue'
 
 // Defining Components
 Vue.component('app-header', Header)
+Vue.component('app-footer', Footer)
 Vue.component('app-mini-bag', MiniBag)
 Vue.component('app-wish-list', WishList)
 Vue.component('app-product', Product)

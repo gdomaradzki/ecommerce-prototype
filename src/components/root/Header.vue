@@ -26,6 +26,10 @@
     flex-direction: row;
     transition: .3s ease;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
 
     .md-header-current-page {
       text-transform: uppercase;
@@ -46,6 +50,7 @@
       justify-content: space-between;
       padding: 0 40px;
       background-color: #fff;
+      position: static;
     }
   }
 
