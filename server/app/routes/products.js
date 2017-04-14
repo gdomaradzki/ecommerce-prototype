@@ -5,7 +5,7 @@ module.exports = (app) => {
       .post(api.createNewProduct)
       .get(api.getProducts)
 
-  app.route('/v1/products/:newPromo')
+  app.route('/v1/products/:promo')
       .get(api.getPromos)
 
   app.route('/v1/products/:_id')

@@ -35,7 +35,12 @@ const schema = mongoose.Schema({
     required: true
   },
 
-  newPromo: {
+  newProduct: {
+    type: Boolean,
+    required: true
+  },
+
+  promo: {
     type: Boolean,
     required: true
   },

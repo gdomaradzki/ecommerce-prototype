@@ -12,7 +12,8 @@ module.exports = (app) => {
     product.type = req.body.type;
     product.productSize = req.body.productSize;
     product.stock = req.body.stock;
-    product.newPromo = req.body.newPromo;
+    product.newProduct = req.body.newProduct;
+    product.promo = req.body.promo;
     product.brand = req.body.brand;
     product.price = req.body.price.price;
     product.offer = req.body.price.offer;
@@ -35,7 +36,7 @@ module.exports = (app) => {
   };
 
   api.getPromos = (req, res) => {
-    Product.find({ newPromo: req.params.newPromo }, (error, product) => {
+    Product.find({ promo: req.params.promo }, (error, product) => {
       if (error) return res.send();
 
       res.json(product);

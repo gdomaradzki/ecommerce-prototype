@@ -5,7 +5,7 @@
       <source media="(max-width: 600px)" srcset="./../../../static/img/landing/01_x.png">
       <source media="(max-width: 768px)" srcset="./../../../static/img/landing/01_s.png">
       <source media="(max-width: 1024px)" srcset="./../../../static/img/landing/01_m.png">
-      <img class="md-landing-page" src="./../../assets/img/landing/01_lb.png" alt="Landing Image Default">
+      <img class="md-landing-page__default" src="./../../assets/img/landing/01_lb.png" alt="Landing Image Default">
     </picture>
 
     <!-- New Products -->
@@ -23,7 +23,7 @@
     <!-- Current Offers -->
     <section class="l-current-offers">
       <h3 class="md-current-offers__title">current offers</h3>
-      <app-promo-product :newPromos="newPromos"></app-promo-product>
+      <app-product :products="newPromos"></app-product>
     </section>
   </main>
 </template>
@@ -41,6 +41,12 @@
 
   .l-home-page {
     margin-top: 48px;
+
+    .md-landing-page {
+      .md-landing-page__default {
+        width: 100%;
+      }
+    }
 
     @media (min-width: 600px) {
       margin-top: 0;
