@@ -62,6 +62,7 @@
         Axios.get(`${urlPrefix}/v1/products/${brand}`)
               .then((res) => {
                 this.chosenBrand = res.data
+                console.log(this.chosenBrand)
               }).catch((error) => {
                 console.log(error)
               })

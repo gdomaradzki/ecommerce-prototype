@@ -36,11 +36,6 @@ module.exports = (app) => {
   };
 
   api.getBrands = (req, res) => {
-    // Product.find({}, 'brand', (error, product) => {
-    //   if (error) return res.send();
-    //
-    //   res.json(product);
-    // });
     Product.find().distinct('brand', (error, product) => {
       if (error) return res.send();
 
