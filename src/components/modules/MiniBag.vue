@@ -64,5 +64,9 @@
         transform: translateY(-10px) translateX(0);
       }
     }
+
+    @media (min-width: 1360px) {
+      margin: 0 15px;
+    }
   }
 </style>

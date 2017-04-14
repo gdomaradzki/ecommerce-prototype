@@ -15,8 +15,23 @@ const schema = mongoose.Schema({
     required: true
   },
 
+  type: {
+    type: String,
+    required: true
+  },
+
+  productSize: {
+    type: String,
+    required: true
+  },
+
   brand: {
     type: String,
+    required: true
+  },
+
+  newPromo: {
+    type: Boolean,
     required: true
   },
 

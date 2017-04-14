@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 // Importing Pages
 import ProductListing from '@/components/pages/ProductListing'
+import Home from '@/components/pages/Home'
 
 // Importing Root Components
 import Header from '@/components/root/Header'
@@ -26,6 +27,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/products/list',
       name: 'Product Listing',
       component: ProductListing
     }

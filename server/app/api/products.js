@@ -8,6 +8,8 @@ module.exports = (app) => {
     let product = new Product();
     product.name = req.body.name;
     product.description = req.body.description;
+    product.type = req.body.type;
+    product.productSize = req.body.productSize;
     product.stock = req.body.stock;
     product.brand = req.body.brand;
     product.price = req.body.price;

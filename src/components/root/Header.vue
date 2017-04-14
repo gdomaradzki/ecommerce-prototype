@@ -1,5 +1,6 @@
 <template>
   <header class="l-app-header">
+    <!-- Displays current page the user is on -->
     <h1 class="md-header-current-page"> {{ $route.name }} </h1>
     <div class="l-header-quick-access">
       <app-mini-bag></app-mini-bag>
@@ -51,6 +52,7 @@
       padding: 0 40px;
       background-color: #fff;
       position: static;
+      border-bottom: 1px solid $primary-color;
     }
   }
 
