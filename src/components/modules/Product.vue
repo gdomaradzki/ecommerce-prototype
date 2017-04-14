@@ -9,7 +9,7 @@
       </button>
       <h3 class="md-product__name">{{ product.name }}</h3>
       <p class="md-product__description">{{ product.description }}</p>
-      <div class="md-product__pricing" :class="hasOffer === product.promo ? 'md-product__pricing--no-offers' : 'md-product__pricing--has-offer'">
+      <div class="md-product__pricing" :class="product.promo ? 'md-product__pricing--has-offer' : 'md-product__pricing--no-offers'">
         <strong class="md-product__price">£{{ product.price.price }}</strong>
         <strong class="md-product__offer">£{{ product.price.offer }}</strong>
       </div>
@@ -26,8 +26,7 @@
       return {
         button: {
           text: 'add to cart'
-        },
-        hasOffer: false
+        }
       }
     }
   }
