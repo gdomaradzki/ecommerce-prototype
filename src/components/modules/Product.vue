@@ -84,7 +84,7 @@
       font-weight: 700;
       transition: .3s ease;
 
-      @media (min-width: 1366px) {
+      @media (min-width: 1360px) {
         font-size: 24px;
       }
     }
@@ -97,7 +97,7 @@
       padding: 10px 0;
       transition: .3s ease;
 
-      @media (min-width: 1366px) {
+      @media (min-width: 1360px) {
         font-size: 18px;
       }
     }
@@ -113,7 +113,7 @@
         margin: 0 5px;
         transition: .3s ease;
 
-        @media (min-width: 1366px) {
+        @media (min-width: 1360px) {
           font-size: 20px;
         }
       }
@@ -140,10 +140,11 @@
 
       &:hover {
         background-color: $primary-color;
+        border-color: $primary-color;
         color: #fff;
       }
 
-      @media (min-width: 1366px) {
+      @media (min-width: 1360px) {
         font-size: 18px;
       }
     }

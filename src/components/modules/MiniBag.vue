@@ -25,15 +25,21 @@
       font-size: 12px;
       font-weight: 400;
       margin: 0 5px;
+      transition: .3s ease;
 
       @media (min-width: 600px) {
         color: $primary-color;
+      }
+
+      @media (min-width: 1360px) {
+        font-size: 18px;
       }
     }
 
     .md-mini-bag__icon {
       width: 17px;
       height: 17px;
+      transition: .3s ease;
 
       path {
         fill: #fff;
@@ -43,10 +49,20 @@
           fill: $primary-color;
         }
       }
+
+      @media (min-width: 1360px) {
+        width: 25px;
+        height: 25px;
+      }
     }
 
     .md-mini-bag__quantity {
       transform: translateY(-10px) translateX(-3px);
+      transition: .3s ease;
+
+      @media (min-width: 1360px) {
+        transform: translateY(-10px) translateX(0);
+      }
     }
   }
 </style>

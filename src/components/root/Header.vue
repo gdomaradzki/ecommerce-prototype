@@ -70,6 +70,12 @@
       font-weight: 700;
       @extend %v-align-center;
       @extend %h-align-center;
+
+      @media (min-width: 1360px) {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+      }
     }
 
     @media (min-width: 600px) {
