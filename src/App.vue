@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <router-view :newPromos="newPromos"></router-view>
+    <router-view :newProducts='newProducts'
+                 :promos="promos"
+                 :brands="brands">
+    </router-view>
     <app-footer></app-footer>
   </div>
 </template>
@@ -13,19 +16,40 @@
     name: 'app',
     data () {
       return {
-        newPromos: []
+        newProducts: [],
+        promos: [],
+        brands: []
       }
     },
-    mounted: function () {
-      this.fetchNewPromos()
+    created: function () {
+      this.fetchNewProducts()
+      this.fetchPromos()
+      this.fetchBrands()
     },
     methods: {
-      // Fetches all new promos from the API
-      fetchNewPromos () {
-        Axios.get(`${urlPrefix}/v1/products/true`)
+      // Fetches all new products from the API
+      fetchNewProducts () {
+        Axios.get(`${urlPrefix}/v1/products/news/true`)
             .then((res) => {
-              this.newPromos = res.data.map(promo => promo)
-              console.log(this.newPromos)
+              this.newProducts = res.data.map(products => products)
+            }).catch((error) => {
+              console.log(error)
+            })
+      },
+      // Fetches all new promos from the API
+      fetchPromos () {
+        Axios.get(`${urlPrefix}/v1/products/promos/true`)
+            .then((res) => {
+              this.promos = res.data.map(promo => promo)
+            }).catch((error) => {
+              console.log(error)
+            })
+      },
+      // Fetches all available brands
+      fetchBrands () {
+        Axios.get(`${urlPrefix}/v1/products/brands/`)
+            .then((res) => {
+              this.brands = res.data.map(brand => brand.brand)
             }).catch((error) => {
               console.log(error)
             })

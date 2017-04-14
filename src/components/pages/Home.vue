@@ -11,19 +11,22 @@
     <!-- New Products -->
     <section class="l-new-products">
       <h1 class="md-new-products__title">new products</h1>
-
+      <app-product :products="newProducts"></app-product>
     </section>
 
     <!-- Available Brands -->
     <section class="l-brands">
       <h2 class="md-brands__title">check our available brands</h2>
-      <select class="md-brands__select"></select>
+      <select class="md-brands__select">
+        <option class="md-brands__option" hidden value="">Choose a brand</option>
+        <option class="md-brands__option" v-for="brand in brands">{{ brand }}</option>
+      </select>
     </section>
 
     <!-- Current Offers -->
     <section class="l-current-offers">
       <h3 class="md-current-offers__title">current offers</h3>
-      <app-product :products="newPromos"></app-product>
+      <app-product :products="promos"></app-product>
     </section>
   </main>
 </template>
@@ -31,7 +34,7 @@
 <script>
   export default {
     name: 'Home',
-    props: ['newPromos']
+    props: ['newProducts', 'promos', 'brands']
   }
 </script>
 
@@ -90,6 +93,11 @@
 
   .md-brands__select {
     height: 35px;
+    padding: 5px;
+    background-color: $primary-color;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 2px;
 
     @media (min-width: 600px) {
       width: 370px;

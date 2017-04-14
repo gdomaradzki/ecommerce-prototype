@@ -35,6 +35,22 @@ module.exports = (app) => {
     });
   };
 
+  api.getBrands = (req, res) => {
+    Product.find({}, 'brand', (error, product) => {
+      if (error) return res.send();
+
+      res.json(product);
+    });
+  };
+
+  api.getNewProducts = (req, res) => {
+    Product.find({ newProduct: req.params.newProduct }, (error, product) => {
+      if (error) return res.send();
+
+      res.json(product);
+    });
+  };
+
   api.getPromos = (req, res) => {
     Product.find({ promo: req.params.promo }, (error, product) => {
       if (error) return res.send();
