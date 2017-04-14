@@ -27,9 +27,9 @@
   @import './../../assets/partials/_config';
 
   .l-product {
-    margin: 10px;
     background-color: #fff;
     padding: 20px 20px 25px;
+    margin: 10px 0;
     width: 100%;
     position: relative;
 
@@ -82,6 +82,11 @@
       color: $primary-color;
       font-size: 14px;
       font-weight: 700;
+      transition: .3s ease;
+
+      @media (min-width: 1366px) {
+        font-size: 24px;
+      }
     }
 
     .md-product__description {
@@ -90,6 +95,11 @@
       font-size: 12px;
       margin: 0;
       padding: 10px 0;
+      transition: .3s ease;
+
+      @media (min-width: 1366px) {
+        font-size: 18px;
+      }
     }
 
     .md-product__pricing {
@@ -101,6 +111,11 @@
         font-weight: 700;
         text-decoration: line-through;
         margin: 0 5px;
+        transition: .3s ease;
+
+        @media (min-width: 1366px) {
+          font-size: 20px;
+        }
       }
 
       .md-product__offer {
@@ -127,9 +142,14 @@
         background-color: $primary-color;
         color: #fff;
       }
+
+      @media (min-width: 1366px) {
+        font-size: 18px;
+      }
     }
 
     @media (min-width: 600px) {
+      margin: 10px;
       width: auto;
     }
   }
