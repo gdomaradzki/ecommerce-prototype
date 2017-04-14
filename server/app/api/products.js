@@ -16,8 +16,7 @@ module.exports = (app) => {
     product.price = req.body.price;
 
     product.save(error => {
-      if (error)
-        return res.send();
+      if (error) return res.send();
 
       res.json({ message: 'Product created' });
       console.log('Product Created');
@@ -26,8 +25,7 @@ module.exports = (app) => {
 
   api.getProducts = (req, res) => {
     Product.find((error, product) => {
-      if (error)
-        res.send(error);
+      if (error) res.send(error);
 
       res.status(200).json(product);
       return true;
@@ -36,8 +34,7 @@ module.exports = (app) => {
 
   api.deleteProduct = (req, res) => {
     Product.remove({ _id: req.params._id }, function (error, removed) {
-      if (error)
-        return console.log(error);
+      if (error) return console.log(error);
 
       if (removed) {
         res.status(200).end();
