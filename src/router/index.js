@@ -41,18 +41,4 @@ export default new Router({
       component: ProductListing
     }
   ]
-  // let c4 = {
-  //   name: "Jaqueta bomber 'Kenzo X K-Way' dupla face",
-  //   url: "https://cdn-images.farfetch-contents.com/12/02/22/39/12022239_9592554_480.jpg",
-  //   description: "Jaqueta bomber 'Kenzo X K-Way' dupla face preta e estampada, KENZO KIDS. Possui capuz, fechamento frontal por zíper, estampa corrida, mangas longas e punhos e bainha canelados.",
-  //   stock: 20,
-  //   type: "Jaqueta",
-  //   products: "Kids",
-  //   brand: "Kenzo",
-  //   newProducts: true,
-  //   promo: false,
-  //   price: {
-  //     price: 150
-  //   }
-  // }
 })

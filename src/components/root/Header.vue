@@ -44,7 +44,6 @@
         color: $primary-color;
         margin: 18px 0;
         font-size: 24px;
-        // width: 100%;
       }
     }
 

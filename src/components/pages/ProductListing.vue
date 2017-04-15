@@ -1,8 +1,10 @@
 <template>
-  <section class="l-product-listing">
-    <!-- <router-link class="md-product-listing__return-btn" to="/">go back</router-link> -->
-    <app-product :products="products" :addToCart="addToCart" :addToWishList="addToWishList"></app-product>
-  </section>
+  <div class="l-product-listing-container">
+    <router-link class="md-product-listing__return-btn" to="/">go back</router-link>
+    <section class="l-product-listing">
+      <app-product :products="products" :addToCart="addToCart" :addToWishList="addToWishList"></app-product>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -26,7 +28,6 @@
         Axios.get(`${urlPrefix}/v1/products/${brand}`)
               .then((res) => {
                 this.products = res.data
-                console.log(brand)
               }).catch((error) => {
                 console.log(error)
               })
@@ -48,16 +49,19 @@
   // Imports
   @import './../../assets/partials/_config';
 
-  .l-product-listing {
-    display: flex;
+  .l-product-listing-container {
     margin: 83px 15px 40px;
-    transition: .3s ease;
-    flex-direction: column;
-    flex-flow: row wrap;
 
     @media (min-width: 600px) {
       margin: 30px;
     }
+  }
+
+  .l-product-listing {
+    display: flex;
+    transition: .3s ease;
+    flex-direction: column;
+    flex-flow: row wrap;
 
     @media (min-width: 668px) {
       flex-direction: row;
@@ -84,8 +88,8 @@
     }
 
     @media (min-width: 600px) {
-      // width: 130px;
-      // flex: 0 0 100%;
+      width: 130px;
+      margin: 0 10px 25px;
     }
   }
 

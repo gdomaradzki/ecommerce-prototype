@@ -42,6 +42,7 @@
         Axios.get(`${urlPrefix}/v1/products/news/true`)
               .then((res) => {
                 this.newProducts = res.data.map(products => products)
+                console.log(res)
               }).catch((error) => {
                 console.log(error)
               })
