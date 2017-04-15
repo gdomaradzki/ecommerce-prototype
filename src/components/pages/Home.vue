@@ -11,7 +11,7 @@
     <!-- New Products -->
     <section class="l-new-products">
       <h1 class="md-new-products__title">new products</h1>
-      <app-product :products="newProducts"></app-product>
+      <app-product :products="newProducts" :addToCart="addToCart" :addToWishList="addToWishList"></app-product>
     </section>
 
     <!-- Available Brands -->
@@ -29,7 +29,7 @@
     <!-- Current Offers -->
     <section class="l-current-offers">
       <h3 class="md-current-offers__title">current offers</h3>
-      <app-product :products="promos"></app-product>
+      <app-product :products="promos" :addToCart="addToCart" :addToWishList="addToWishList"></app-product>
     </section>
   </main>
 </template>
@@ -37,7 +37,7 @@
 <script>
   export default {
     name: 'Home',
-    props: ['newProducts', 'promos', 'brands', 'allProducts'],
+    props: ['newProducts', 'promos', 'brands', 'allProducts', 'addToCart', 'addToWishList'],
     data () {
       return {
         selectedBrand: '',

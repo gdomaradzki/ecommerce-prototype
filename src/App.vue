@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <app-header></app-header>
+    <app-header :miniBag="miniBag" :wishList="wishList"></app-header>
     <router-view :newProducts='newProducts'
                  :promos="promos"
                  :brands="brands"
-                 :allProducts="products">
+                 :allProducts="products"
+                 :addToCart="addToCart"
+                 :addToWishList="addToWishList">
     </router-view>
     <!-- :products="products" -->
     <app-footer></app-footer>
@@ -21,7 +23,12 @@
         newProducts: [],
         promos: [],
         brands: [],
-        brandProducts: []
+        brandProducts: [],
+        miniBag: {
+          price: 0,
+          quantity: 0
+        },
+        wishList: 0
       }
     },
     created: function () {
@@ -56,6 +63,16 @@
               }).catch((error) => {
                 console.log(error)
               })
+      },
+      // Adds products to the cart
+      addToCart (product) {
+        // If product has a promotion, sums its offer to minibag's price, else sums its normal price
+        product.promo ? this.miniBag.price += product.price.offer : this.miniBag.price += product.price.price
+        this.miniBag.quantity++
+      },
+      // Adds products to wish list
+      addToWishList (product) {
+        this.wishList++
       }
     }
   }

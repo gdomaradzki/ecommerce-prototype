@@ -3,15 +3,16 @@
     <!-- Displays current page the user is on -->
     <h1 class="md-header-current-page"> {{ $route.name === ':brand' ? $route.params.brand : $route.name}} </h1>
     <div class="l-header-quick-access">
-      <app-mini-bag></app-mini-bag>
-      <app-wish-list></app-wish-list>
+      <app-mini-bag :miniBag="miniBag"></app-mini-bag>
+      <app-wish-list :wishList="wishList"></app-wish-list>
     </div>
   </header>
 </template>
 
 <script>
   export default {
-    name: 'Header'
+    name: 'Header',
+    props: ['miniBag', 'wishList']
   }
 </script>
 
@@ -43,6 +44,7 @@
         color: $primary-color;
         margin: 18px 0;
         font-size: 24px;
+        // width: 100%;
       }
     }
 

@@ -1,16 +1,17 @@
 <template>
   <div class="md-mini-bag">
-    <strong class="md-mini-bag__price">£ 335</strong>
+    <strong class="md-mini-bag__price">£ {{ miniBag.price }}</strong>
     <svg class="md-mini-bag__icon" viewBox="36 8 17 18">
         <path d="M52.997701,12.8571429 L49.3553365,12.8571429 L49.3553365,8 L39.6423645,8 L39.6423645,12.8571429 L36,12.8571429 L36,25 L52.997701,25 L52.997701,12.8571429 Z M42.0706075,10.4285714 L46.9270935,10.4285714 L46.9270935,12.8571429 L42.0706075,12.8571429 L42.0706075,10.4285714 Z" id="Bag-Icon" stroke="none" fill="#444A59" fill-rule="evenodd"></path>
     </svg>
-    <strong class="md-mini-bag__quantity">2</strong>
+    <strong class="md-mini-bag__quantity">{{ miniBag.quantity }}</strong>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'MiniBag'
+    name: 'MiniBag',
+    props: ['miniBag']
   }
 </script>
 

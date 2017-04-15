@@ -1,6 +1,7 @@
 <template>
   <section class="l-product-listing">
-    <app-product :products="products"></app-product>
+    <!-- <router-link class="md-product-listing__return-btn" to="/">go back</router-link> -->
+    <app-product :products="products" :addToCart="addToCart" :addToWishList="addToWishList"></app-product>
   </section>
 </template>
 
@@ -9,6 +10,7 @@
   const urlPrefix = process.env.NODE_ENV === 'production' ? '/v1/' : `http://${window.location.hostname}:3000`
   export default {
     name: 'ProductListing',
+    props: ['addToCart', 'addToWishList'],
     data () {
       return {
         products: []
@@ -51,6 +53,7 @@
     margin: 83px 15px 40px;
     transition: .3s ease;
     flex-direction: column;
+    flex-flow: row wrap;
 
     @media (min-width: 600px) {
       margin: 30px;
@@ -58,6 +61,31 @@
 
     @media (min-width: 668px) {
       flex-direction: row;
+    }
+  }
+
+  .md-product-listing__return-btn {
+    text-decoration: none;
+    color: $primary-color;
+    background-color: #fff;
+    border: 2px solid $primary-color;
+    border-radius: 5px;
+    @extend %v-align-center;
+    @extend %h-align-center;
+    height: 35px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    transition: .3s ease;
+    width: 100%;
+
+    &:hover {
+      background-color: $primary-color;
+      color: #fff;
+    }
+
+    @media (min-width: 600px) {
+      // width: 130px;
+      // flex: 0 0 100%;
     }
   }
 

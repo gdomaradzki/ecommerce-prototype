@@ -2,7 +2,7 @@
   <div class="l-product-container">
     <article class="l-product" v-for="product in products">
       <img class="md-product__photo" :src="product.url" :alt="product.name">
-      <button class="md-product__wish-list-button">
+      <button class="md-product__wish-list-button" @click="addToWishList(product)">
         <svg class="md-wish-list__icon" viewBox="0 6 20 20">
             <polygon id="Wishlist-Icon" stroke="none" fill="#444A59" fill-rule="evenodd" points="12.3598869 13.2675869 20 13.2675869 13.8200565 17.7545318 16.1782804 25.0221187 9.99833694 20.5318477 3.81839348 25.0221187 6.17994346 17.7545318 0 13.2675869 7.63678696 13.2675869 9.99833694 6"></polygon>
         </svg>
@@ -13,7 +13,7 @@
         <strong class="md-product__price">£{{ product.price.price }}</strong>
         <strong class="md-product__offer">£{{ product.price.offer }}</strong>
       </div>
-      <button class="md-product__cart-button">{{ button.text }}</button>
+      <button class="md-product__cart-button" @click="addToCart(product)">{{ button.text }}</button>
     </article>
   </div>
 </template>
@@ -21,7 +21,7 @@
 <script>
   export default {
     name: 'Product',
-    props: ['products'],
+    props: ['products', 'miniBag', 'addToCart', 'addToWishList'],
     data () {
       return {
         button: {
@@ -58,7 +58,7 @@
       margin: 0 auto 20px;
 
       @media (min-width: 600px) {
-        width: 339px;
+        width: auto;
       }
     }
 
@@ -184,7 +184,8 @@
 
     @media (min-width: 600px) {
       margin: 10px;
-      width: 339px;
+      width: auto;
+      max-width: 339px;
     }
   }
 </style>
