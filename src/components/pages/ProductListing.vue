@@ -61,10 +61,10 @@
     display: flex;
     transition: .3s ease;
     flex-direction: column;
-    flex-flow: row wrap;
 
     @media (min-width: 668px) {
       flex-direction: row;
+      flex-flow: row wrap;
     }
   }
 
@@ -92,5 +92,4 @@
       margin: 0 10px 25px;
     }
   }
-
 </style>

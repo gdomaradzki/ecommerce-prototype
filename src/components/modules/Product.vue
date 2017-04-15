@@ -41,7 +41,8 @@
     display: block;
 
     @media (min-width: 600px) {
-      display: inline-flex;
+      display: flex;
+      flex-flow: row wrap;
     }
   }
 
@@ -184,7 +185,7 @@
 
     @media (min-width: 600px) {
       margin: 10px;
-      width: auto;
+      // width: auto;
       max-width: 339px;
     }
   }

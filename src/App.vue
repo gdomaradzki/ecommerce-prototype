@@ -8,7 +8,6 @@
                  :addToCart="addToCart"
                  :addToWishList="addToWishList">
     </router-view>
-    <!-- :products="products" -->
     <app-footer></app-footer>
   </div>
 </template>
@@ -41,8 +40,7 @@
       fetchNewProducts () {
         Axios.get(`${urlPrefix}/v1/products/news/true`)
               .then((res) => {
-                this.newProducts = res.data.map(products => products)
-                console.log(res)
+                this.newProducts = res.data
               }).catch((error) => {
                 console.log(error)
               })
@@ -87,6 +85,7 @@
   body {
     font-family: $primary-font;
     background-color: $background-color;
-    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
 </style>

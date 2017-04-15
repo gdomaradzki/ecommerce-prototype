@@ -1,6 +1,3 @@
-// For authoring Nightwatch tests, see
-// http://nightwatchjs.org/guide#usage
-
 module.exports = {
   'default e2e tests': function (browser) {
     // automatically uses dev Server port from /config.index.js
@@ -10,10 +7,14 @@ module.exports = {
 
     browser
       .url(devServer)
-      .waitForElementVisible('#app', 5000)
-      .assert.elementPresent('.hello')
-      .assert.containsText('h1', 'Welcome to Your Vue.js App')
-      .assert.elementCount('img', 1)
+      .waitForElementVisible('.l-new-products', 5000)
+      .assert.containsText('.md-product__name:first-of-type', 'COLETE MATELASSÊ')
+      .waitForElementVisible('option[value="Moncler"]', 5000)
+      .click('option[value="Moncler"]')
+      .waitForElementVisible('.l-product', 5000)
+      .assert.containsText('.md-product__name:first-of-type', 'COLETE MATELASSÊ')
+      .waitForElementVisible('.l-current-offers', 5000)
+      .assert.containsText('.md-product__name:first-of-type', 'COLETE MATELASSÊ')
       .end()
   }
 }
