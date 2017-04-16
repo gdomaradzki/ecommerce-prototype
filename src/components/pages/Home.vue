@@ -1,25 +1,23 @@
 <template>
   <main class="l-home-page">
-    <picture class="md-landing-page">
+    <!-- Bugs while running Mocha tests, some HTML5 elements are seen as unknown custom elements -->
+    <picture name="landing-banner" class="md-landing-page">
       <source media="(max-width: 480px)" srcset="./../../../static/img/landing/01_xs.png">
       <source media="(max-width: 600px)" srcset="./../../../static/img/landing/01_x.png">
       <source media="(max-width: 768px)" srcset="./../../../static/img/landing/01_s.png">
       <source media="(max-width: 1024px)" srcset="./../../../static/img/landing/01_m.png">
       <img class="md-landing-page__default" src="./../../assets/img/landing/01_lb.png" alt="Landing Image Default">
     </picture>
-
     <!-- Available Brands -->
     <section class="l-brands">
-      <h2 class="md-brands__title">check our available brands</h2>
-      <h3 class="md-brands__title">or check our complete product list</h3>
+      <h1 class="md-brands__title">check our available brands</h1>
+      <h2 class="md-brands__title">or check our complete product list</h2>
       <select class="md-brands__select" v-model="selectedBrand">
         <option class="md-brands__option" value="">Choose a brand</option>
         <option class="md-brands__option" :value="brand" v-for="brand in brands">{{ brand }}</option>
       </select>
-      <router-link class="md-brands__check-brand"
-                   :to="selectedBrand ? `/products/${selectedBrand}/list` : '/products/list'">
-                   go to {{ selectedBrand ? selectedBrand : 'full list' }}
-      </router-link>
+      <!-- Can't use a RouterLink in here, otherwise Mocha returns a Vue Warn -->
+      <a class="md-brands__check-brand" :href="selectedBrand ? `#/products/${selectedBrand}/list` : '#/products/list'">go to {{ selectedBrand ? selectedBrand : 'full list' }}</a>
     </section>
 
     <!-- New Products -->
@@ -35,7 +33,7 @@
 
     <!-- Current Offers -->
     <section class="l-current-offers">
-      <h3 class="md-current-offers__title">current offers</h3>
+      <h1 class="md-current-offers__title">current offers</h1>
       <app-product :products="promos"
                    :addToCart="addToCart"
                    :removeFromCart="removeFromCart"
