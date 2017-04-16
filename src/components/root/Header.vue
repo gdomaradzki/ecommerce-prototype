@@ -3,16 +3,22 @@
     <!-- Displays current page the user is on -->
     <h1 class="md-header-current-page"> {{ $route.name === ':brand' ? $route.params.brand : $route.name}} </h1>
     <div class="l-header-quick-access">
-      <app-mini-bag :miniBag="miniBag"></app-mini-bag>
+      <app-mini-bag :miniBag="miniBag" @toggleVisible="isVisible = !isVisible"></app-mini-bag>
       <app-wish-list :wishList="wishList"></app-wish-list>
     </div>
+    <app-mini-cart :miniBag="miniBag" :isVisible="isVisible"></app-mini-cart>
   </header>
 </template>
 
 <script>
   export default {
     name: 'Header',
-    props: ['miniBag', 'wishList']
+    props: ['miniBag', 'wishList'],
+    data () {
+      return {
+        isVisible: false
+      }
+    }
   }
 </script>
 
@@ -32,6 +38,11 @@
     top: 0;
     left: 0;
     z-index: 100;
+
+    .l-mini-cart-container {
+      position: relative;
+      background-color: red;
+    }
 
     .md-header-current-page {
       text-transform: uppercase;

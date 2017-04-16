@@ -14,6 +14,7 @@ module.exports = (app) => {
     product.inWishList = req.body.inWishList;
     product.productSize = req.body.productSize;
     product.stock = req.body.stock;
+    product.quantity = req.body.quantity;
     product.newProduct = req.body.newProduct;
     product.promo = req.body.promo;
     product.brand = req.body.brand;

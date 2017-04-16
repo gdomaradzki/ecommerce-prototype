@@ -25,6 +25,7 @@
         brands: [],
         brandProducts: [],
         miniBag: {
+          items: [],
           price: 0,
           quantity: 0
         },
@@ -69,6 +70,7 @@
         // If product has a promotion, sums its offer to minibag's price, else sums its normal price
         product.promo ? this.miniBag.price += product.price.offer : this.miniBag.price += product.price.price
         this.miniBag.quantity++
+        this.miniBag.items.unshift(product)
       },
       // Removes products from the cart
       removeFromCart (product) {

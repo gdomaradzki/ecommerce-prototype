@@ -39,6 +39,10 @@
         Axios.get(`${urlPrefix}/v1/products/${brand}`)
               .then((res) => {
                 this.products = res.data
+                // Adds previousQuantity for miniCart control
+                this.products.forEach((product) => {
+                  product.previousQuantity = 1
+                })
               }).catch((error) => {
                 console.log(error)
               })
@@ -48,6 +52,10 @@
         Axios.get(`${urlPrefix}/v1/products/`)
               .then((res) => {
                 this.products = res.data
+                // Adds previousQuantity for miniCart control
+                this.products.forEach((product) => {
+                  product.previousQuantity = 1
+                })
               }).catch((error) => {
                 console.log(error)
               })

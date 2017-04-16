@@ -249,5 +249,9 @@
       flex: 1 0 23%;
       max-width: 345px;
     }
+
+    @media (min-width: 1500px) {
+      max-width: auto;
+    }
   }
 </style>
