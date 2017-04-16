@@ -11,7 +11,7 @@ npm install
 #install dev dependencies (you will need this, it has necessary dependencies such as sass-loader, node-sass, testing tools, express, mongoose etc)
 npm install -only=dev
 
-# start server
+# start server for production ready version and access it at localhost:3000
 node server.js (or nodemon server.js)
 
 # serve with hot reload at localhost:8080
