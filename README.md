@@ -1,12 +1,15 @@
 # farfetch-ecommerce
 
-> A Vue.js project
+> A project made with Vue.js, Node.js, MongoDB (MLabs), Express.js, Nightwatch, Karma/Mocha and SCSS as a Front End Engineer test for Farfetch
 
 ## Build Setup
 
 ``` bash
 # install dependencies
 npm install
+
+#install dev dependencies in case you're unable to run even after npm install
+npm install -only=dev
 
 # serve with hot reload at localhost:8080
 npm run dev
