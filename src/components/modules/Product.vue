@@ -101,6 +101,10 @@
           }
         }
       }
+
+      &:focus {
+        border: none;
+      }
     }
 
     .md-product__wish-list-button--added-to-wish-list {

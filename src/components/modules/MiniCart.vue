@@ -42,19 +42,18 @@
     transition: .3s ease;
     opacity: 0;
     max-height: calc(100% - 45px);
-    z-index: 90;
     width: 100%;
     background-color: #fff;
     border: 1px solid $primary-color;
     color: $primary-color;
     overflow-y: scroll;
+    z-index: -1;
+    display: none;
 
     @media (min-width: 600px) {
       position: absolute;
       top: 72px;
       width: 320px;
-      z-index: -1;
-      display: none;
     }
 
     .md-mini-cart__list {
@@ -147,10 +146,14 @@
   }
 
   .l-mini-cart--is-active {
-    top: 72px;
+    top: 45px;
     opacity: 1;
     transition: .3s ease;
     z-index: 90;
     display: block;
+
+    @media (min-width: 600px) {
+      top: 72px;
+    }
   }
 </style>
