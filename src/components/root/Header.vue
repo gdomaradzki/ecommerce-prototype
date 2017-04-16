@@ -1,7 +1,7 @@
 <template>
   <header class="l-app-header">
     <!-- Displays current page the user is on -->
-    <h1 class="md-header-current-page"> {{ $route.name === ':brand' ? $route.params.brand : $route.name}} </h1>
+    <h1 class="md-header-current-page"> {{ $route.name === ':brand' ? $route.params.brand : $route.name }} </h1>
     <div class="l-header-quick-access">
       <app-mini-bag :miniBag="miniBag" @toggleVisible="isVisible = !isVisible"></app-mini-bag>
       <app-wish-list :wishList="wishList"></app-wish-list>

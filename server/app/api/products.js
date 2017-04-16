@@ -46,6 +46,14 @@ module.exports = (app) => {
     })
   };
 
+  api.getOneProduct = (req, res) => {
+    Product.findOne({ name: req.params.name }, (error, product) => {
+      if (error) return res.send();
+
+      res.json(product);
+    });
+  };
+
   api.getOneBrand = (req, res) => {
     Product.find({ brand: req.params.brand }, (error, product) => {
       if (error) return res.send();
