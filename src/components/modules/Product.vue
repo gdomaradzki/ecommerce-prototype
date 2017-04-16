@@ -242,7 +242,7 @@
 
     @media (min-width: 1024px) {
       flex: 1 0 23%;
-      max-width: 339px;
+      max-width: 345px;
     }
   }
 </style>

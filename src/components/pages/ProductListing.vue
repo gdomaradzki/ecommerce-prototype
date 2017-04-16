@@ -2,8 +2,18 @@
   <div class="l-product-listing-container">
     <router-link class="md-product-listing__return-btn" to="/">go back</router-link>
     <section class="l-product-listing">
-      <app-product :products="products" :addToCart="addToCart" :addToWishList="addToWishList"></app-product>
+      <app-product :products="products"
+                   :addToCart="addToCart"
+                   :addToWishList="addToWishList"
+                   :removeFromCart="removeFromCart"
+                   :removeFromWishList="removeFromWishList">
+      </app-product>
     </section>
+    <nav class="l-pagination">
+      <ul class="md-pagination">
+        <li class="md-pagination__pages" v-for="page in pages">{{ page }}</li>
+      </ul>
+    </nav>
   </div>
 </template>
 
@@ -12,10 +22,11 @@
   const urlPrefix = process.env.NODE_ENV === 'production' ? '/v1/' : `http://${window.location.hostname}:3000`
   export default {
     name: 'ProductListing',
-    props: ['addToCart', 'addToWishList'],
+    props: ['addToCart', 'addToWishList', 'removeFromCart', 'removeFromWishList'],
     data () {
       return {
-        products: []
+        products: [],
+        pages: ['<', '1', '>']
       }
     },
     created: function () {
@@ -90,6 +101,35 @@
     @media (min-width: 600px) {
       width: 130px;
       margin: 0 10px 25px;
+    }
+  }
+
+  .l-pagination {
+    .md-pagination {
+      display: flex;
+      list-style-type: none;
+      height: 45px;
+      @extend %v-align-center;
+      @extend %h-align-center;
+      margin: 40px 0 50px;
+      padding: 0;
+    }
+
+    .md-pagination__pages {
+      color: $primary-color;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      margin: 20px;
+      transition: .3s ease;
+
+      @media (min-width: 600px) {
+        font-size: 16px;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 18px;
+      }
     }
   }
 </style>
