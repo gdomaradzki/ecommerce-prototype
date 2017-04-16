@@ -21,7 +21,7 @@
 <script>
   export default {
     name: 'Product',
-    props: ['products', 'miniBag', 'addToCart', 'removeFromCart', 'addToWishList'],
+    props: ['products', 'miniBag', 'addToCart', 'removeFromCart', 'addToWishList', 'removeFromWishList'],
     methods: {
       // Handles the cart button
       cartButtonHandler (product) {

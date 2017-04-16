@@ -20,6 +20,11 @@ const schema = mongoose.Schema({
     required: true
   },
 
+  inWishList: {
+    type: Boolean,
+    required: true
+  },
+
   stock: {
     type: Number,
     required: true

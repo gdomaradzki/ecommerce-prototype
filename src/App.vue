@@ -6,7 +6,8 @@
                  :brands="brands"
                  :addToCart="addToCart"
                  :removeFromCart="removeFromCart"
-                 :addToWishList="addToWishList">
+                 :addToWishList="addToWishList"
+                 :removeFromWishList="removeFromWishList">
     </router-view>
     <app-footer></app-footer>
   </div>
@@ -78,6 +79,10 @@
       // Adds products to wish list
       addToWishList (product) {
         this.wishList++
+      },
+      // Removes products from wish list
+      removeFromWishList (product) {
+        this.wishList--
       }
     }
   }

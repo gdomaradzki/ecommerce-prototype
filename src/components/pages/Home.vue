@@ -25,13 +25,23 @@
     <!-- New Products -->
     <section class="l-new-products">
       <h1 class="md-new-products__title">new products</h1>
-      <app-product :products="newProducts" :addToCart="addToCart" :removeFromCart="removeFromCart" :addToWishList="addToWishList"></app-product>
+      <app-product :products="newProducts"
+                   :addToCart="addToCart"
+                   :removeFromCart="removeFromCart"
+                   :addToWishList="addToWishList"
+                   :removeFromWishList="removeFromWishList">
+      </app-product>
     </section>
 
     <!-- Current Offers -->
     <section class="l-current-offers">
       <h3 class="md-current-offers__title">current offers</h3>
-      <app-product :products="promos" :addToCart="addToCart" :removeFromCart="removeFromCart" :addToWishList="addToWishList"></app-product>
+      <app-product :products="promos"
+                   :addToCart="addToCart"
+                   :removeFromCart="removeFromCart"
+                   :addToWishList="addToWishList"
+                   :removeFromWishList="removeFromWishList">
+      </app-product>
     </section>
   </main>
 </template>
@@ -39,7 +49,7 @@
 <script>
   export default {
     name: 'Home',
-    props: ['newProducts', 'promos', 'brands', 'addToCart', 'removeFromCart', 'addToWishList'],
+    props: ['newProducts', 'promos', 'brands', 'addToCart', 'removeFromCart', 'addToWishList', 'removeFromWishList'],
     data () {
       return {
         selectedBrand: '',
