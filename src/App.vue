@@ -43,6 +43,9 @@
         Axios.get(`${urlPrefix}/v1/products/news/true`)
               .then((res) => {
                 this.newProducts = res.data
+                this.newProducts.forEach((product) => {
+                  product.previousQuantity = 1
+                })
               }).catch((error) => {
                 console.log(error)
               })
@@ -52,6 +55,9 @@
         Axios.get(`${urlPrefix}/v1/products/promos/true`)
               .then((res) => {
                 this.promos = res.data
+                this.promos.forEach((product) => {
+                  product.previousQuantity = 1
+                })
               }).catch((error) => {
                 console.log(error)
               })
