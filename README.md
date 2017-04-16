@@ -8,7 +8,7 @@
 # install dependencies
 npm install
 
-#install dev dependencies (you will need this, it has necessary dependencies such as sass-loader, node-sass, testing tools, express, mongoose etc)
+#install dev dependencies in case your npm run dev/build after npm install throws errors
 npm install -only=dev
 
 # start server for production ready version and access it at localhost:3000
