@@ -2,7 +2,7 @@
   <div class="l-product-container">
     <article class="l-product" v-for="product in products">
       <img class="md-product__photo" :src="product.url" :alt="product.name">
-      <button class="md-product__wish-list-button" @click="addToWishList(product)">
+      <button class="md-product__wish-list-button" @click="wishListButtonHandler(product)" :class="product.inWishList ? 'md-product__wish-list-button--added-to-wish-list' : ''">
         <svg class="md-wish-list__icon" viewBox="0 6 20 20">
             <polygon id="Wishlist-Icon" stroke="none" fill="#444A59" fill-rule="evenodd" points="12.3598869 13.2675869 20 13.2675869 13.8200565 17.7545318 16.1782804 25.0221187 9.99833694 20.5318477 3.81839348 25.0221187 6.17994346 17.7545318 0 13.2675869 7.63678696 13.2675869 9.99833694 6"></polygon>
         </svg>
@@ -29,6 +29,13 @@
         product.inCart = !product.inCart
         // Adds or remove from cart
         product.inCart ? this.addToCart(product) : this.removeFromCart(product)
+      },
+      // Handles the wish list button
+      wishListButtonHandler (product) {
+        // Swaps the button's state
+        product.inWishList = !product.inWishList
+        // Adds or remove from wish list
+        product.inWishList ? this.addToWishList(product) : this.removeFromWishList(product)
       }
     }
   }
@@ -90,6 +97,27 @@
         .md-wish-list__icon {
           polygon {
             fill: $primary-color;
+          }
+        }
+      }
+    }
+
+    .md-product__wish-list-button--added-to-wish-list {
+      border-color: $primary-color;
+      .md-wish-list__icon {
+        width: 20px;
+        height: 20px;
+        polygon {
+          transition: .3s ease;
+          fill: $primary-color;
+        }
+      }
+
+      &:hover {
+        border-color: $border-color;
+        .md-wish-list__icon {
+          polygon {
+            fill: $border-color;
           }
         }
       }
