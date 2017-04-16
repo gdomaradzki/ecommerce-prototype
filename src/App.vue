@@ -15,7 +15,7 @@
 
 <script>
   import Axios from 'axios'
-  const urlPrefix = process.env.NODE_ENV === 'production' ? '/v1/' : `http://${window.location.hostname}:3000`
+  const urlPrefix = process.env.NODE_ENV === 'production' ? '' : `http://${window.location.hostname}:3000`
   export default {
     name: 'app',
     data () {
