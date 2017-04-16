@@ -60,6 +60,7 @@
     margin: 10px 0;
     width: 100%;
     position: relative;
+    transition: .3s ease;
 
     .md-product__photo {
       width: 250px;
@@ -144,7 +145,7 @@
 
     .md-product__description {
       text-align: center;
-      color: $border-color;
+      color: #8d8d8d;
       font-size: 12px;
       margin: 0;
       padding: 10px 0;
@@ -232,6 +233,10 @@
       &:after {
         content: '';
       }
+    }
+
+    &:hover {
+      box-shadow: 0 3px 10px -1px darken($border-color, 30%);
     }
 
     @media (min-width: 600px) {
