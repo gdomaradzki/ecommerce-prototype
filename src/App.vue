@@ -5,6 +5,7 @@
                  :promos="promos"
                  :brands="brands"
                  :addToCart="addToCart"
+                 :removeFromCart="removeFromCart"
                  :addToWishList="addToWishList">
     </router-view>
     <app-footer></app-footer>
@@ -67,6 +68,12 @@
         // If product has a promotion, sums its offer to minibag's price, else sums its normal price
         product.promo ? this.miniBag.price += product.price.offer : this.miniBag.price += product.price.price
         this.miniBag.quantity++
+      },
+      // Removes products from the cart
+      removeFromCart (product) {
+        // If product has a promotion, subtracts its offer from minibag's price, else subtracts its normal price
+        product.promo ? this.miniBag.price -= product.price.offer : this.miniBag.price -= product.price.price
+        this.miniBag.quantity--
       },
       // Adds products to wish list
       addToWishList (product) {

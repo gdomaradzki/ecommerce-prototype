@@ -15,6 +15,11 @@ const schema = mongoose.Schema({
     required: true
   },
 
+  inCart: {
+    type: Boolean,
+    required: true
+  },
+
   stock: {
     type: Number,
     required: true

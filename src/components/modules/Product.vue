@@ -13,7 +13,7 @@
         <strong class="md-product__price">£{{ product.price.price }}</strong>
         <strong class="md-product__offer">£{{ product.price.offer }}</strong>
       </div>
-      <button class="md-product__cart-button" @click="addToCart(product); addToCartButtonHandler(product)">{{ button.text }}</button>
+      <button class="md-product__cart-button" @click="cartButtonHandler(product)" :class="product.inCart ? 'md-product__cart-button--added-to-cart' : ''"></button>
     </article>
   </div>
 </template>
@@ -21,7 +21,16 @@
 <script>
   export default {
     name: 'Product',
-    props: ['products', 'miniBag', 'addToCart', 'addToWishList']
+    props: ['products', 'miniBag', 'addToCart', 'removeFromCart', 'addToWishList'],
+    methods: {
+      // Handles the cart button
+      cartButtonHandler (product) {
+        // Swaps the button's state
+        product.inCart = !product.inCart
+        // Adds or remove from cart
+        product.inCart ? this.addToCart(product) : this.removeFromCart(product)
+      }
+    }
   }
 </script>
 
@@ -167,6 +176,11 @@
       width: 100%;
       box-sizing: border-box;
       transition: .3s ease;
+      position: relative;
+
+      &:after {
+        content: 'add to cart';
+      }
 
       &:hover {
         background-color: $primary-color;
@@ -176,6 +190,19 @@
 
       @media (min-width: 1360px) {
         font-size: 18px;
+      }
+    }
+
+    .md-product__cart-button--added-to-cart {
+      background-color: $border-color;
+      border-color: $border-color;
+
+      &:before {
+        content: 'in cart'
+      }
+
+      &:after {
+        content: '';
       }
     }
 

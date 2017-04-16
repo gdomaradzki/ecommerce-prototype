@@ -10,6 +10,7 @@ module.exports = (app) => {
     product.url = req.body.url;
     product.description = req.body.description;
     product.type = req.body.type;
+    product.inCart = req.body.inCart;
     product.productSize = req.body.productSize;
     product.stock = req.body.stock;
     product.newProduct = req.body.newProduct;
