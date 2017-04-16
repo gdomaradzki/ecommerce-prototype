@@ -13,7 +13,7 @@
         <strong class="md-product__price">£{{ product.price.price }}</strong>
         <strong class="md-product__offer">£{{ product.price.offer }}</strong>
       </div>
-      <button class="md-product__cart-button" @click="addToCart(product)">{{ button.text }}</button>
+      <button class="md-product__cart-button" @click="addToCart(product); addToCartButtonHandler(product)">{{ button.text }}</button>
     </article>
   </div>
 </template>
@@ -21,17 +21,9 @@
 <script>
   export default {
     name: 'Product',
-    props: ['products', 'miniBag', 'addToCart', 'addToWishList'],
-    data () {
-      return {
-        button: {
-          text: 'add to cart'
-        }
-      }
-    }
+    props: ['products', 'miniBag', 'addToCart', 'addToWishList']
   }
 </script>
-
 
 <style lang="scss">
   // Imports
@@ -104,6 +96,10 @@
       font-weight: 700;
       transition: .3s ease;
 
+      @media (min-width: 600px) {
+        min-height: 100px;
+      }
+
       @media (min-width: 1360px) {
         font-size: 22px;
       }
@@ -119,11 +115,11 @@
 
       @media (min-width: 600px) {
         text-align: justify;
+        min-height: 140px;
       }
 
       @media (min-width: 1360px) {
         font-size: 16px;
-        min-height: 140px;
       }
     }
 
@@ -185,7 +181,12 @@
 
     @media (min-width: 600px) {
       margin: 10px;
-      // width: auto;
+      width: auto;
+      flex: 1 0 45%;
+    }
+
+    @media (min-width: 1024px) {
+      flex: 1 0 23%;
       max-width: 339px;
     }
   }

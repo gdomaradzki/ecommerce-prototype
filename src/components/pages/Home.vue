@@ -8,24 +8,26 @@
       <img class="md-landing-page__default" src="./../../assets/img/landing/01_lb.png" alt="Landing Image Default">
     </picture>
 
+    <!-- Available Brands -->
+    <section class="l-brands">
+      <h2 class="md-brands__title">check our available brands</h2>
+      <h3 class="md-brands__title">or check our complete product list</h3>
+      <select class="md-brands__select" v-model="selectedBrand">
+        <option class="md-brands__option" value="">Choose a brand</option>
+        <option class="md-brands__option" :value="brand" v-for="brand in brands">{{ brand }}</option>
+      </select>
+      <router-link class="md-brands__check-brand"
+                   :to="selectedBrand ? `/products/${selectedBrand}/list` : '/products/list'">
+                   go to {{ selectedBrand ? selectedBrand : 'full list' }}
+      </router-link>
+    </section>
+
     <!-- New Products -->
     <section class="l-new-products">
       <h1 class="md-new-products__title">new products</h1>
       <app-product :products="newProducts" :addToCart="addToCart" :addToWishList="addToWishList"></app-product>
     </section>
 
-    <!-- Available Brands -->
-    <section class="l-brands">
-      <h2 class="md-brands__title">check our available brands</h2>
-      <select class="md-brands__select" v-model="selectedBrand">
-        <option class="md-brands__option" hidden value="">Choose a brand</option>
-        <option class="md-brands__option" :value="brand" v-for="brand in brands">{{ brand }}</option>
-      </select>
-      <router-link class="md-brands__check-brand"
-                   :to="`/products/${selectedBrand}/list`">
-                   check it out!
-      </router-link>
-    </section>
     <!-- Current Offers -->
     <section class="l-current-offers">
       <h3 class="md-current-offers__title">current offers</h3>
@@ -37,7 +39,7 @@
 <script>
   export default {
     name: 'Home',
-    props: ['newProducts', 'promos', 'brands', 'allProducts', 'addToCart', 'addToWishList'],
+    props: ['newProducts', 'promos', 'brands', 'addToCart', 'addToWishList'],
     data () {
       return {
         selectedBrand: '',
@@ -125,7 +127,7 @@
 
       @media (min-width: 600px) {
         display: inline-flex;
-        width: 150px;
+        width: 250px;
       }
     }
   }

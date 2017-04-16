@@ -4,7 +4,6 @@
     <router-view :newProducts='newProducts'
                  :promos="promos"
                  :brands="brands"
-                 :allProducts="products"
                  :addToCart="addToCart"
                  :addToWishList="addToWishList">
     </router-view>

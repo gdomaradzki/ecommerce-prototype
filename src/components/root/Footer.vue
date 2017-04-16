@@ -40,6 +40,7 @@
     @media (min-width: 600px) {
       background-color: #fff;
       padding: 0 40px;
+      border-top: 1px solid $primary-color;
     }
   }
 </style>
