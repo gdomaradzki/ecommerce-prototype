@@ -1,6 +1,6 @@
-# farfetch-ecommerce
+# ecommerce-prototype
 
-> A project made with Vue.js, Node.js, MongoDB (MLabs), Express.js, Nightwatch, Karma/Mocha and SCSS as a Front End Engineer test for Farfetch
+> A project made with Vue.js, Node.js, MongoDB (MLabs), Express.js, Nightwatch, Karma/Mocha and SCSS
 
 ## Build Setup
 
